@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
+/**
+ * main - function print n
+ * Return: - always
+*/
 
-/* variables positive or negative */
 int main(void)
 {
 	int n;
