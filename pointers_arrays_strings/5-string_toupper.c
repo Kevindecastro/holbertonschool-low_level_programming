@@ -4,6 +4,7 @@
  * @str: character source
  * Return: Character change
  */
+
 char *string_toupper(char *str)
 {
 	int i;
