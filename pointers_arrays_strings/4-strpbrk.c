@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include "2-strchr.c"
 
 /**
  * _strpbrk - searches a string for any of sat of bytes
