@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "main.h"
 /**
  * main - print sum of positive number
  * @argc: number of arguments
