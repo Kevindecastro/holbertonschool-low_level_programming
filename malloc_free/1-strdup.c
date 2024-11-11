@@ -11,7 +11,7 @@
 char *_strdup(char *str)
 {
 	int size = 0;
-	char *ptr, *dupli;
+	char *ptr, *dup;
 
 	if (str == NULL)
 		return (NULL);
@@ -24,11 +24,11 @@ char *_strdup(char *str)
 	if (ptr == NULL)
 		return (NULL);
 
-	dupli = ptr;
+	dup = ptr;
 	while (*str)
-		*dupli++ = *str++;
+		*dup++ = *str++;
 
-	*dupli = '\0';
+	*dup = '\0';
 
 	return (ptr);
 }
