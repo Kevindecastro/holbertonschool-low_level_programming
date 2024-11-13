@@ -10,10 +10,10 @@
 
 void *malloc_checked(unsigned int b)
 {
-	void *ptr = malloc(b);/*Returns a pointer to the allocated memory*/
+	void *ptr = malloc(b);/*allocates memory*/
 
 	if (ptr == NULL)/*if malloc fails*/
 		exit(98);/*process termination with a status value of 98*/
 
-	return (ptr);
+	return (ptr);/*Returns a pointer to the allocated memory*/
 }
