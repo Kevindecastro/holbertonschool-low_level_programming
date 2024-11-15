@@ -25,11 +25,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 		copy_dog->name = malloc(sizeof(char) * length_name);
 
-			if (copy_dog->name == NULL)
-			{
-				free(copy_dog);
-				return (NULL);
-			}
+		if (copy_dog->name == NULL)
+		{
+			free(copy_dog);
+			return (NULL);
+		}
 
 		copy_dog->owner = malloc(sizeof(char) * length_owner);
 
