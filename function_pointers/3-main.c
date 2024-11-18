@@ -7,11 +7,22 @@
  */
 int main(int argc, char **argv)
 {
-	if (argc == 4)
+	int (*fptr)(int, int);
+
+	if (argc != 4)
 	{
-		printf("%d\n", get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3])));
-		return (0);
+		printf("Error\n");
+		exit(98);
 	}
-	printf("Error\n");
-	return (98);
+
+	fptr = get_op_func(argv[2]);
+
+	if (!fptr)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
+	printf("%d\n", fptr(atoi(argv[1]), atoi(argv[3])));
+	return (0);
 }
