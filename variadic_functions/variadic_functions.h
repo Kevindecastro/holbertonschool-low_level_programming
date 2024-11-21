@@ -1,11 +1,8 @@
 #ifndef _VARIADIC_FUNCTIONS_H_
 #define _VARIADIC_FUNCTIONS_H_
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
 /**
  * struct form - Struct form
- *
  * @format_print: The format of string
  * @func: The function associated
  */
