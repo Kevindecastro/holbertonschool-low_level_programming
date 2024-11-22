@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
 #include "variadic_functions.h"
 
-/*
+/**
  * sum_them_all - returns the sum of all it's parameters
  * @n: interger to number of arguments
  * Return: Sum of all params
