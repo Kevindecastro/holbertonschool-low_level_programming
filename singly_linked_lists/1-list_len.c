@@ -13,13 +13,13 @@
 
 size_t list_len(const list_t *h)
 {
-    size_t count = 0; // Initialisation du compteur
+    size_t count = 0;
 
-    while (h != NULL) // Tant qu'on n'est pas à la fin de la liste
+    while (h != NULL)
     {
-        count++;      // Incrémente le compteur pour chaque nœud
-        h = h->next;  // Passe au nœud suivant
+        count++;
+        h = h->next;
     }
 
-    return count; // Retourne la longueur de la liste
+    return count;
 }
