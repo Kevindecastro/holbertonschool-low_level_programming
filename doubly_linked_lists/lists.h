@@ -2,6 +2,7 @@
 #define LISTS_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stddef.h>
 
 /**
@@ -14,7 +15,7 @@
  *
  */
 
-typedef struct list_s
+typedef struct dlistint_s
 {
 	int n;
 	struct dlistint_s *prev;
