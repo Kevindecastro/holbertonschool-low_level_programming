@@ -1,26 +1,26 @@
 #include "main.h"
 
 /**
- * binary_to_uint - Convertit un nombre binaire en un entier non signé
- * @b: Une chaîne de caractères composée uniquement de '0' '1'
+ * binary_to_uint - Converts a binary number to an unsigned integer
+ * @b: A string consisting only of '0' '1'
  *
- * Return: Le nombre converti,
- * ou 0 si la chaîne contient un caractère invad
- * ou si b est NULL.
+ * Return: The converted number,
+ * or 0 if the string contains an invade character
+ * or if b is NULL.
  */
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int result = 0;
-	/* Vérifier si la cha�e est NULL */
+	/* Check if the string is NULL */
 	if (b == NULL)
 		return (0);
-	/* Parcourir la cha�ne */
+	/* Browse the channel */
 	while (*b)
 	{
-		/* Si le caractère actuel n'est ni '0' ni '1', retourne 0 */
+		/* If the current character is neither '0' nor '1', returns 0 */
 		if (*b != '0' && *b != '1')
 			return (0);
-		/* Décaler le résultat vers la gauche et ajouter la valeur du bit auel */
+		/* Shift the result to the left and add the value of the current bit */
 		result = result * 2 + (*b - '0');
 		b++;
 	}
