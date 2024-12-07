@@ -16,7 +16,7 @@
  */
 int main(int argc, char **argv)
 {
-	int file_from, file_to, bytes_read, bytes_written
+	int file_from, file_to, bytes_read, bytes_written;
 	char buffer[BUF_SIZE];
 
 	/*Check if the correct number of arguments is provided*/
