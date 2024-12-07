@@ -53,5 +53,5 @@ int main(int argc, char **argv)
 	if (close(file_from) == -1 || close(file_to) == -1)
 		print_error_and_exit("Error: Can't close file descriptor\n", 100);
 
-	return 0;
+	return (0);
 }
