@@ -2,25 +2,8 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "main.h"
 
 #define BUF_SIZE 1024
-
-/**
- * close_func - Ferme un fichier et vérifie si la fermeture a réussi.
- * @file: Le descripteur de fichier à fermer.
- */
-void close_func(int file)
-{
-	int c;
-
-	c = close(file);
-	if (c == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
-		exit(100);
-	}
-}
 
 /**
  * main - Copie le contenu d'un fichier dans un autre.
@@ -32,19 +15,12 @@ void close_func(int file)
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, bytes_read, bytes_written;
-	char *buffer;
+	char buffer[BUF_SIZE];
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
-	}
-
-	buffer = malloc(sizeof(char) * BUF_SIZE);
-	if (!buffer)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
 	}
 
 	file_from = open(argv[1], O_RDONLY);
@@ -77,9 +53,17 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	free(buffer);
-	close_func(file_from);
-	close_func(file_to);
+	if (close(file_from) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
 
-	return (0);
+	if (close(file_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
+		exit(100);
+	}
+
+	return 0;
 }
