@@ -5,16 +5,11 @@
 #include "main.h"
 
 /**
- * create_file - Creates a file with specified content.
- * @filename: Name of the file to create (NULL-terminated string).
- * @text_content: NULL-terminated string to write to the file.
+ * create_file - Creates a file with specified content
+ * @filename: Name of the file to create
+ * @text_content: NULL-terminated string to write to the file
  *
- * Return: 1 on success, -1 on failure.
- *
- * Description:
- * - If the file already exists, it is truncated (its content is erased).
- * - If the file doesn't exist, it is created with permissions `rw-------` (0600).
- * - If `text_content` is NULL, an empty file is created.
+ * Return: 1 on success, -1 on failure
  */
 
 int create_file(const char *filename, char *text_content)
