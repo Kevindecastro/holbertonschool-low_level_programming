@@ -14,29 +14,35 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int i = 0, files;
-	ssize_t bytes_written;
+	int fd;/*File descriptor for the created file*/
+	ssize_t bytes_written;/*Tracks the number of bytes successfully written*/
+	size_t length = 0;/*Holds the length of text_content*/
 
+	/*Check if filename is NULL. If so, return -1 (error)*/
 	if (filename == NULL)
 		return (-1);
 
-	if (text_content == NULL)
-		text_content = "";
-
-	while (text_content[i] != '\0')
-	{
-		i++;
-	}
-	files = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
-	if (files == -1)
+	/* Open file in write-only mode, create it if doesn't exist and truncate*/
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	if (fd == -1)
 		return (-1);
-	bytes_written = write(files, text_content, i);
-	if (bytes_written == -1)
+	/* If text_content is not NULL, calculate its length and write it */
+	if (text_content != NULL)
 	{
-		close(files);
-		return (-1);
-	}
+		while (text_content[length])
+			length++;
 
-	close(files);
+		bytes_written = write(fd, text_content, length);
+
+		/*If write fails, close file and return -1.*/
+		if (bytes_written == -1)
+		{
+			close(fd);
+			return (-1);
+		}
+	}
+	/* Close the file descriptor */
+	close(fd);
+
 	return (1);
 }
