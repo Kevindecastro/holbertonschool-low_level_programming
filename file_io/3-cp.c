@@ -4,7 +4,9 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+
 #define BUF_SIZE 1024
+
 /**
  * main - Copies the content of one file to another.
  * @argc: The number of arguments.
@@ -15,7 +17,9 @@
 int main(int argc, char **argv)
 {
 	int file_from, file_to, bytes_read, bytes_written
+	int file_from, file_to, bytes_read, bytes_written;
 	char buffer[BUF_SIZE];
+
 	/*Check if the correct number of arguments is provided*/
 	if (argc != 3)
 	{
@@ -63,5 +67,6 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
+
 	return (0);
 }
