@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * main - copies the content of one file to another
  * @argc: number of arguments
@@ -11,24 +10,23 @@ int main(int argc, char *argv[])
 {
 	int file_from, file_to, bytes = 1024, num;
 	char buf[1024];
-/* Check if the correct number of arguments is provided */
+
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-/* Open the source file for reading */
+
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-/* create the destination file with permissions */
 	file_to = creat(argv[2], 0664);
 	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		close(file_from), exit(99);
 	}
-/* Copying the contents of the source file to the destination file */
+
 	while (bytes == 1024)
 	{
 		bytes = read(file_from, buf, 1024);
@@ -41,7 +39,7 @@ int main(int argc, char *argv[])
 		if (num < bytes)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
-/* Close the file descriptors */
+
 	if (close(file_from) == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
 
