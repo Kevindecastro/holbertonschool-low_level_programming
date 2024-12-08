@@ -99,5 +99,5 @@ int main(int argc, char *argv[])
 		handle_error(100, fd_str);
 	}
 
-	return 0;
+	return (0);
 }
